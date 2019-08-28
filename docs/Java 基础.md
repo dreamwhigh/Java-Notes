@@ -1,46 +1,3 @@
-<!-- GFM-TOC -->
-
-- [Java 简介 ](#java-简介)
-  - [Java 版本 ](#java-版本)
-  - [名词解释 ](#名词解释)
-  - [安装 JDK](#安装-jdk)
-- [Java 程序基础 ](#java-程序基础)
-  - [基本类型 ](#基本类型)
-  - [引用类型 ](#引用类型)
-  - [关键字 ](#关键字)
-  - [整数运算 ](#整数运算)
-  - [输出输入 ](#输出输入)
-  - [if 判断 ](#if-判断)
-  - [switch](#switch)
-- [面向对象 ](#面向对象)
-  - [方法 ](#方法)
-  - [构造方法 ](#构造方法)
-  - [重载与重写 ](#重载与重写)
-  - [继承 ](#继承)
-  - [多态 ](#多态)
-  - [抽象类 ](#抽象类)
-  - [接口 ](#接口)
-  - [静态字段和静态方法 ](#静态字段和静态方法)
-  - [包 ](#包)
-  - [作用域 ](#作用域)
-- [Java 核心类 ](#java-核心类)
-  - [拼接字符串 ](#拼接字符串)
-  - [包装类 ](#包装类)
-  - [JavaBean](#javabean)
-  - [枚举类 ](#枚举类)
-  - [BigInteger](#biginteger)
-  - [BigDecimal](#bigdecimal)
-- [异常处理 ](#异常处理)
-  - [异常 ](#异常)
-  - [捕获异常 ](#捕获异常)
-  - [抛出异常 ](#抛出异常)
-- [Object 通用方法 ](#object-通用方法)
-  - [等价与相等 ](#等价与相等)
-  - [hashCode()](#hashcode)
-  - [clone()](#clone)
-- [参考资料 ](#参考资料)
-  <!-- GFM-TOC -->
-
 ## Java 简介
 
 ### Java 版本
@@ -145,6 +102,8 @@ Java 的字符类型 `char` 是基本类型，字符串类型 `String` 是引用
 | long     | 64         | 0 L       |                  | Long      |
 | float    | 32         | 0.0 f     |                  | Float     |
 | double   | 64         | 0.0       |                  | Double    |
+
+final 变量，系统不会自动赋默认值，需要手动进行一次初始化赋值操作。
 
 #### 缓存池
 
@@ -569,13 +528,30 @@ class ReadApple extends Apple {
 
 ### 关键字
 
-- var 用于省略变量类型
+51+2个保留字=53个关键字（均为小写）
 
-  ```java
-  var sb = new StringBuilder();
-  //编译器会自动判断为下面的语句
-  StringBuilder sb = new StringBuilder();
-  ```
+| 访问修饰符（3）               | private, protected, public                                   |
+| ----------------------------- | ------------------------------------------------------------ |
+| 类，接口，实例化对象（6）     | abstract, class, extends, interface, implements, new         |
+| 包相关（2）                   | import, package                                              |
+| 流程控制（12）                | break, continue, return, do, while, if, else, for, instanceof, switch, case, default |
+| 异常处理（5）                 | catch, try, finally, throw, throws,                          |
+| 数据类型（12）                | boolean, byte, char, double, float, int, long, short, void, null, true, false |
+| 修饰方法、类、属性和变量（9） | static, final, super, this, native, strictfp, synchronized, transient, volatile |
+| 其他（2）                     | enum, assert                                                 |
+| 保留字（2)                    | goto, const                                                  |
+
+**补充**
+
+var 用于省略变量类型，Java10 引入。
+
+适用于带有构造器的**局部变量**和 for 循环中。
+
+```java
+var sb = new StringBuilder();
+//编译器会自动判断为下面的语句
+StringBuilder sb = new StringBuilder();
+```
 
 ### 整数运算
 
@@ -793,11 +769,15 @@ class Person {
 
 ### 构造方法
 
-构造方法的名称就是类名。构造方法的参数没有限制，在方法内部，也可以编写任意语句。但是，和普通方法相比，构造方法没有返回值（也没有 `void` ），调用构造方法，必须用 `new` 操作符。
+构造方法的名称就是类名。
+
+构造方法没有返回值（也没有 `void` ），调用构造方法，必须用 `new` 操作符，需要使用 `public` 来修饰。
+
+一个类（包括匿名内部类）至少有一个构造方法，可以同时存在多个构造方法，方法的**重载**。
 
 如果一个类没有定义构造方法，编译器会自动为我们生成一个默认构造方法，它没有参数，也没有执行语句。
 
-可以同时存在多个构造方法，方法的**重载**。
+构造方法
 
 ```java
 class Person {
