@@ -9,7 +9,7 @@
 - Java ME：Micro Edition，针对嵌入式设备的“瘦身版”，其虚拟机和库都与 Java EE 不同。
 
   <div align="center">
-      <img src="pics/1562896856294.png" width="300px">
+      <img src="https://github.com/dreamwhigh/Java-Notes/blob/master/docs/pics/1562896856294.png?raw=true" width="400px">
   </div>
 
 ### 名词解释
@@ -19,7 +19,7 @@
 - JRE：Java Runtime Environment，运行 Java 字节码的虚拟机。
 
   <div align="center">
-      <img src="pics/1562897337667.png" width="400px">
+      <img src="https://github.com/dreamwhigh/Java-Notes/blob/master/docs/pics/1562897337667.png?raw=true" width="400px">
   </div>
 
 ### 安装 JDK
@@ -1232,7 +1232,9 @@ blog.Teacher@355da254
 
 结果分析：由输出结果可以看出，它们的地址值是相同的，那么它们肯定是同一个对象。teacher 和 otherteacher 的只是引用而已，他们都指向了一个相同的对象 Teacher(“Taylor”,26)。 这就叫做引用拷贝。
 
-![1565586605316](C:\Users\dreamwhigh\AppData\Roaming\Typora\typora-user-images\1565586605316.png)
+<div align="center">
+    <img src="https://github.com/dreamwhigh/Java-Notes/blob/master/docs/pics/1565586605316.png?raw=true" width="400px">
+</div>
 
 #### 对象拷贝
 
@@ -1254,7 +1256,9 @@ blog.Teacher@4dc63996
 
 结果分析：由输出结果可以看出，它们的地址是不同的，也就是说创建了新的对象， 而不是把原对象的地址赋给了一个新的引用变量,这就叫做对象拷贝。
 
-![1565586639106](C:\Users\dreamwhigh\AppData\Roaming\Typora\typora-user-images\1565586639106.png)
+<div align="center">
+    <img src="https://github.com/dreamwhigh/Java-Notes/blob/master/docs/pics/1565586639106.png?raw=true" width="400px">
+</div>
 
 ##### 浅拷贝
 
@@ -1262,7 +1266,9 @@ blog.Teacher@4dc63996
 
 简而言之，浅拷贝仅仅复制所考虑的对象，而不复制它所引用的对象，即拷贝对象和原始对象的 引用类型 引用同一个对象。
 
-![1565586807928](C:\Users\dreamwhigh\AppData\Roaming\Typora\typora-user-images\1565586807928.png)
+<div align="center">
+    <img src="https://github.com/dreamwhigh/Java-Notes/blob/master/docs/pics/1565586807928.png?raw=true" width="400px">
+</div>
 
 ##### **深拷贝**
 
@@ -1270,7 +1276,9 @@ blog.Teacher@4dc63996
 
 简而言之，深拷贝把要复制的对象所引用的对象都复制了一遍，即拷贝对象和原始对象的引用类型引用不同对象。
 
-![1565586927414](C:\Users\dreamwhigh\AppData\Roaming\Typora\typora-user-images\1565586927414.png)
+<div align="center">
+    <img src="https://github.com/dreamwhigh/Java-Notes/blob/master/docs/pics/1565586927414.png?raw=true" width="400px">
+</div>
 
 通过 clone 方法复制对象时，若不对 clone() 方法进行改写，则调用此方法得到的对象为浅拷贝。
 
