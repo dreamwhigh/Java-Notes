@@ -188,21 +188,21 @@ public class Main {
 
 **new 方法是在堆上创建对象和数组的**
 
-`new String("aaa")` 
+`String s = new String("abc")` 
 
 - 系统先在字符串常量池里面寻找是否有一个"abc"的字符串，
 - 如果有的话，则在堆中复制一个该字符串，并且将堆中的引用指向 s,这个时候系统只创建了一个对象，即**堆中的对象**；
-- 如果没有的话，则会先在字符串常量池中先创建一个字符串为"abc"的常量，然后再复制到堆里面，最后将堆所在的地址指向 s，这个时候创建了两个对象；
+- 如果没有的话，则会先在字符串常量池中先创建一个字符串为"abc"的常量，然后再复制到堆里面，最后将**堆所在的地址**指向 s，这个时候创建了两个对象；
 
-`String s = "bbb";` 
+`String s = "abc";` 
 
 - 系统先在字符串中寻找是否存在"abc"的常量
-- 如果存在，则直接将该"abc"在常量池中的地址指向 s，这个时候，系统没有创建新对象。
+- 如果存在，则直接将该 **"abc" 在常量池中的地址**指向 s，这个时候，系统没有创建新对象。
 - 如果不存在，则在常量池中新建一个"abc"并放入常量池里面，然后再返回该地址，这个时候，系统创建了一个对象。
 
 `s.intern()` 
 
-- 如果 String Pool 中已经存在一个字符串和 s 引用的字符串值相等（使用 equals() 方法进行确定），那么就会返回 String Pool 中字符串的引用；
+- 如果 String Pool 中已经存在一个字符串和 s 引用的字符串值相等（使用 equals() 方法进行确定），那么就会**返回 String Pool 中字符串的引用**；
 - 否则在 String Pool 中添加一个新的字符串，并返回这个新字符串的引用。
 
 [示例 ](<https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%9F%BA%E7%A1%80?id=string-pool>)
@@ -228,7 +228,7 @@ System.out.println(s5 == s6);  // true
 ns = new int[] { 68, 79, 91, 85, 62 };
 ```
 
-![1562911998948](E:\GitHub\CS-Learning\docs\java\pics\1562911998948.png)
+![1562911998948](E:\GitHub\Java-Notes\docs\pics\1562911998948.png)
 
 ```java
 //数组元素为引用类型
@@ -237,11 +237,11 @@ String[] names = {
 };
 ```
 
-![1562912100211](E:\GitHub\CS-Learning\docs\java\pics\1562912100211.png)
+![1562912100211](E:\GitHub\Java-Notes\docs\pics\1562912100211.png)
 
 ### 泛型
 
-来自[Java 泛型知识点总结 ](<https://segmentfault.com/a/1190000014824002>)
+转自：[Java 泛型知识点总结 ](<https://segmentfault.com/a/1190000014824002>)
 
 泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。泛型主要使用在集合中。
 
@@ -467,7 +467,7 @@ class C4 extends Father {
 /**
  * extends:泛型的上限 <= 一般用于限制操作 不能使用在添加数据上，一般都是用于数据的读取
  *
- * supper:泛型的上限 >= 即父类或自身。一般用于下限操作
+ * super:泛型的上限 >= 即父类或自身。一般用于下限操作
  *
  * @author Administrator
  * @param <T>
@@ -701,7 +701,7 @@ public class Main {
 
 `equals()` 方法判断引用类型的**变量内容**是否相等。
 
-注意：执行语句 `s1.equals(s2)` 时，如果变量 `s1` 为 `nul ` ，会报 `NullPointerException` 。
+注意：执行语句 `s1.equals(s2)` 时，如果变量 `s1` 为 `null ` ，会报 `NullPointerException` 。
 
 ```java
 //正确的做法加上 s1 != null
@@ -877,8 +877,6 @@ class Person {
 ```
 
 使用 `abstract` 修饰的类就是抽象类。我们无法实例化一个抽象类，抽象类本身被设计成只能用于被继承。
-
-通过 `abstract` 定义的方法是抽象方法，它只有定义，没有实现。抽象方法定义了子类必须实现的接口规范。
 
 通过`abstract`定义的方法是抽象方法，它只有定义，没有实现，不能被实例化。抽象方法定义了子类必须实现的接口规范；
 
@@ -1107,9 +1105,7 @@ public class Person {
 
 ### 枚举类
 
-Java 使用 `enum` 定义枚举类型，它被编译器编译为 `final class Xxx extends Enum { … }`，本质上就是 class
-
-，引用类型，但其实例不能通过 new 创建，只能通过如下方式定义实例：
+Java 使用 `enum` 定义枚举类型，它被编译器编译为 `final class Xxx extends Enum { … }`，本质上就是 class，引用类型，但其实例不能通过 new 创建，只能通过如下方式定义实例：
 
 ```java
 enum Weekday {
